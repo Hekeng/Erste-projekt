@@ -1,0 +1,10 @@
+Starte Programm
+
+Frage den Benutzer nach dem Tag (1-31) und speichere ihn in tag
+Frage den Benutzer nach dem Monat (1-12) und speichere ihn in monat
+Frage den Benutzer nach dem Jahr (1900-2100) und speichere es in jahr
+
+Gib das Datum im deutschen Format aus: tt.mm.jjjj
+Gib das Datum im amerikanischen Format aus: jjjj-mm-tt
+
+Beende Programm

@@ -1,0 +1,13 @@
+Starte Programm
+
+Setze laenge auf 0
+Setze breite auf 0
+
+Frage den Benutzer nach der Laenge des Rechtecks und speichere sie in laenge
+Frage den Benutzer nach der Breite des Rechtecks und speichere sie in breite
+
+Wenn laenge >= 0 und breite >= 0 dann
+    Berechne flaeche = laenge * breite
+    Gib die Fläche des Rechtecks mit zwei Nachkommastellen aus
+Sonst
+    Gib eine Fehlermeldung aus, dass Laenge und Breite ungleich Null sein muessen

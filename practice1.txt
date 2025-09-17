@@ -1,0 +1,9 @@
+Programmstart
+
+Benutzereingaben: aktuelles Jahr, Geburtsjahr, Geburtstag schon gehabt (j/n)
+
+Alter berechnen (abhängig von Antwort)
+
+Alter ausgeben
+
+Programmende
