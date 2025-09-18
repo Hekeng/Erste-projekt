@@ -24,7 +24,7 @@ int main() {
 	} else {
 		printf("\n%c\n%c\n", buchstabe1, buchstabe2);
 	}
-
+fflush(stdin);
     return 0;
 
 }

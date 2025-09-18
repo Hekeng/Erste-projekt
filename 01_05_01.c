@@ -2,10 +2,8 @@
 
 int main() {
 	
-    float startKapital;
-    float zielkapital;
-    float prozentsatz;
-    float aktuelleskapital;
+    float startKapital, zielkapital, prozentsatz, aktuelleskapital;
+
     int jahr;
 
     printf("Bitte geben Sie Ihren Startkapital ein:\n");
