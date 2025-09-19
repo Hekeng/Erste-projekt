@@ -1,5 +1,23 @@
 {
 	"files.associations": {
-		"stdlib.h": "c"
-	}
+		"stdlib.h": "c",
+		"stdio.h": "c"
+	},
+	"sqltools.connections": [
+		{
+			"mysqlOptions": {
+				"authProtocol": "default",
+				"enableSsl": "Disabled"
+			},
+			"ssh": "Disabled",
+			"previewLimit": 50,
+			"server": "localhost",
+			"port": 3306,
+			"driver": "MySQL",
+			"database": "mydB",
+			"username": "root",
+			"name": "XAMPP",
+			"password": ""
+		}
+	]
 }

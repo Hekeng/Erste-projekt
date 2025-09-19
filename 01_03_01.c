@@ -9,7 +9,7 @@ float breite = 0;
 
 char character = 228;
 
-printf("Bitte geben Sie die Laenge des Rechtecks ein (L%cngen>0)\n", character);
+printf("Bitte geben Sie die Laenge des Rechtecks ein %c (Lngen>0)\n", character);
 scanf("%f", &laenge);
 
 printf( "Bitte geben Sie die Breite des Rechtecks ein (Breite>0)\n" );
