@@ -1,7 +1,8 @@
 {
 	"files.associations": {
 		"stdlib.h": "c",
-		"stdio.h": "c"
+		"stdio.h": "c",
+		"windows.h": "c"
 	},
 	"sqltools.connections": [
 		{
