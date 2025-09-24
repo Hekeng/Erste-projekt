@@ -14,27 +14,54 @@ int main() {
 	system("chcp 65001"); // Setzt die Codepage auf 65001 (UTF-8) für die korrekte Anzeige von Umlauten
 	system("cls"); // Löscht die Konsole
 
-	float länge, breite, fläche, fläche_variant, reschnung;
+	float länge, breite, fläche, fläche_variant;
+	int reschnung = 0;
 
 	do {
 		printf("Geben Sie die Länge des Rechtecks ein (in Meter): \n");
 		if (scanf("%f", &länge) != 1) {
 			printf("Fehler: Bitte eine Zahl eingeben!\n");
+			länge = 0;
 			while (getchar() != '\n'); // Eingabepuffer leeren
 			continue;
 		}
-		{
-			/* code */
+	} while (länge <= 0); // Wiederholt die Eingabeaufforderung, wenn die Länge nicht positiv ist
+
+	do {
+		printf("Geben Sie die Breite des Rechtecks ein (in Meter): \n");
+		if (scanf("%f", &breite) != 1) {
+			printf("Fehler: Bitte eine Zahl eingeben!\n");
+			breite = 0;
+			while (getchar() != '\n'); // Eingabepuffer leeren
+			continue;
 		}
+	} while (breite <= 0); // Wiederholt die Eingabeaufforderung, wenn die Breite nicht positiv ist
+
+	fläche = länge * breite;
+
+	do {
+
+		do {
+		printf("Geben Sie die Fläche des Rechtecks ein (in Quadratmeter): \n");
+		if (scanf("%f", &fläche_variant) != 1) {
+			printf("Fehler: Bitte eine Zahl eingeben!\n");
+			while (getchar() != '\n'); // Eingabepuffer leeren
+			fläche_variant = -1;
+			reschnung++;
+			continue;
+		}
+		reschnung++;
+		} while (fläche_variant < 0); // Wiederholt die Eingabeaufforderung, wenn die Fläche negativ ist
+
 		
-
-
-
-
-
-	} while (fläche == fläche_variant);
-
-
+			if (fläche == fläche_variant) {
+				printf("Richtig! Die Fläche des Rechtecks beträgt %.2f Quadratmeter.\n", fläche);
+				printf("Sie haben %d Versuche benötigt, um die korrekte Fläche zu erraten.\n", reschnung);
+			} else {
+				printf("Falsch! Versuchen Sie es erneut.\n");
+			}
+		
+	} while (fläche != fläche_variant);
 
 	return 0;
 }

@@ -13,16 +13,16 @@ do {
     printf("Hallo!\n");
 
     do {
-        printf("Wollen Sie, dass ein weiteres mal Hallo ausgegeben wird? (y/n): ");
+        printf("Wollen Sie, dass ein weiteres mal Hallo ausgegeben wird? (j/n): ");
         scanf(" %c", &antwort);   // пробел перед %c убирает \n
         
-        if (antwort != 'y' && antwort != 'n') {
-            printf("Fehler: Bitte eine gültige Eingabe tätigen (y/n)!\n");
+        if (antwort != 'j' && antwort != 'n') {
+            printf("Fehler: Bitte eine gültige Eingabe tätigen (j/n)!\n");
         }
 
-    } while (antwort != 'y' && antwort != 'n');  
+    } while (antwort != 'j' && antwort != 'n');  
 
-} while (antwort == 'y');
+} while (antwort == 'j');
 
 	printf("Dann gibt es eben keine weitere Begrüßung mehr ... und tschööö! \n");
 

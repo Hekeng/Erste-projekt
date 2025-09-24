@@ -2,7 +2,8 @@
 	"files.associations": {
 		"stdlib.h": "c",
 		"stdio.h": "c",
-		"windows.h": "c"
+		"windows.h": "c",
+		"time.h": "c"
 	},
 	"sqltools.connections": [
 		{
