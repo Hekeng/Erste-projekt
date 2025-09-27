@@ -1,0 +1,56 @@
+' нажать АЛЬТ + D!!!!!
+' F1 → набрать PlantUML Export → Enter сохранить
+@startuml Warenkorb-System
+
+title Anwendungsfalldiagramm: Warenwirtschaftssystem (Use Case Diagramm: Warenwirtschaftssystem)
+
+' AKTEURE DEFINIEREN (ОПРЕДЕЛЕНИЕ АКТЁРОВ)
+actor Kunde as "Kunde"
+actor Sachbearbeiter as "Sachbearbeiter"
+
+' SYSTEMGRENZE (ГРАНИЦА СИСТЕМЫ)
+rectangle WarenkorbSystem as "Website / Server" {
+
+    ' OBERBEGRIFF FUNKTIONEN DES KUNDEN (Обобщение функций клиента)
+    usecase FunktionAuswaehlen as "Ware auswählen" <<Hauptfunktion>>
+
+    ' USE CASES DES KUNDEN (Варианты использования клиента)
+    usecase InfoAnzeigen as "Informationen zur Ware anzeigen"
+    usecase InWarenkorbLegen as "In Warenkorb legen"
+    usecase Kaufwunsch as "Waren aus Warenkorb kaufen"
+    usecase AnzahlAngeben as "Gewünschte Anzahl der Ware angeben"
+
+    ' USE CASES DES SACHBEARBEITERS (Варианты использования сотрудника)
+    usecase WareEinpflegen as "Neue Ware einpflegen"
+    usecase WareBearbeiten as "Bestehende Ware bearbeiten"
+    usecase DatenbestandAktualisieren as "Datenbestand aktualisieren"
+}
+
+
+' BEZIEHUNGEN ZWISCHEN AKTEUREN UND USE CASES (Отношения между актерами и вариантами использования)
+
+' KUNDE (КЛИЕНТ)
+Kunde --> FunktionAuswaehlen
+Kunde --> InWarenkorbLegen
+Kunde --> Kaufwunsch
+
+' SACHBEARBEITER (СОТРУДНИК)
+Sachbearbeiter --> WareEinpflegen
+Sachbearbeiter --> WareBearbeiten
+
+
+' ABHÄNGIGKEITEN UND REGELN (ЗАВИСИМОСТИ И ПРАВИЛА)
+
+' Das Auswählen der Ware führt IMMER zur Anzeige der Infos (Правило 1)
+FunktionAuswaehlen --> InfoAnzeigen : <<include>>
+
+' Der Kaufwunsch muss IMMER die Angabe der Anzahl beinhalten (Правило 2)
+Kaufwunsch --> AnzahlAngeben : <<include>>
+
+' Neue Waren einpflegen führt IMMER zur Aktualisierung der Datenbank (Правило 3)
+WareEinpflegen --> DatenbestandAktualisieren : <<include>>
+
+' Waren bearbeiten führt IMMER zur Aktualisierung der Datenbank (Правило 4)
+WareBearbeiten --> DatenbestandAktualisieren : <<include>>
+
+@enduml
