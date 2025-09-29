@@ -18,7 +18,8 @@ int main() {
 	system("cls"); // Löscht die Konsole
 	srand(time(NULL)); // Startwert für Zufallszahlen (Seed)
 
-	int maximum_wert =0;
+	int maximum_wert = 0;
+
 	for (int i = 0; i < 10; i++)
 	{
 		int aktuelle_zufallszahl = 1 + rand() % 100;

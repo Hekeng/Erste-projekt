@@ -27,15 +27,10 @@ int main() {
 		cube2 = 1 + rand() % 6;
 
 		if (cube1 == cube2){
-
-			zahl_mal = zahl_mal + 1;
-
+			zahl_mal ++;
 		}
-
 		printf("Würfelwurf #%d: (%d, %d)\n", i + 1, cube1, cube2);
-
 		//Sleep(5); //задержка в милисекундах
-		
 	}
 	
 	printf("Anzahl der Dubletten: %d \n", zahl_mal);

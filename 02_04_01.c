@@ -1,23 +1,14 @@
 //02_04_01
 
 // Start.
-
 // Lies min.
-
 // Lies max.
-
 // Lies anzahl.
-
 // Setze Zähler i=0.
-
 // Schleife: Solange i<anzahl:
-
 // Generiere Zufallszahl x im Bereich [min,max].
-
 // Gib x aus.
-
 // Erhöhe i (i++).
-
 // Ende.
 
 #include <stdio.h>
@@ -29,7 +20,7 @@
 
 int main() {
 
-	system("chcp 65001"); // Setzt die Codepage auf 65001 (UTF-8) für die korrekte Anzeige von Umlauten
+	system("chcp 65001"); 
 	system("cls"); // Löscht die Konsole
 
 	srand(time(NULL)); // Startwert für Zufallszahlen (Seed)
@@ -41,14 +32,12 @@ int main() {
 	while (getchar() != '\n'); 
 
 	do{
-
 		printf("Geben Sie die maximale Zahl ein (2-100), größer als die minimale Zahl:\n");
 		scanf(" %d", &max);
 		while (getchar() != '\n'); 
 
 		if (max <= min)	{
 			printf ("Die Zahl %d ist nicht kleiner als die Zahl %d. Geben Sie die Zahl %d erneut ein.\n", max, min, max);
-
 		}
 
 	}while (max <= min);
@@ -60,7 +49,6 @@ int main() {
 	for (int i = 0; i < anzahl; i++)
 	{
 		int x = min + rand() % (max - min + 1);  // Zufallszahl im Bereich [min, max]
-		
 		printf("Wurfzahl %d Ihre Zufallszahl: %d\n", i, x);
 	}
 	
