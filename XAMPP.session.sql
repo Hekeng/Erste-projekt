@@ -30,6 +30,9 @@ CREATE TABLE IF NOT EXISTS my_shop.products (
 ALTER TABLE my_shop.products
 ADD COLUMN price DECIMAL(10, 2) NOT NULL DEFAULT 0.00;
 
+ALTER TABLE my_shop.products
+CHANGE COLUMN price sku_price DECIMAL(10, 2) NOT NULL DEFAULT 0.00;
+
 CREATE TABLE IF NOT EXISTS my_shop.invoices (
   id INT PRIMARY KEY AUTO_INCREMENT,
   user_id INT,
@@ -107,7 +110,7 @@ FROM my_shop.users;
 SELECT id, invoice_id, product_id, product_name_at_sale, price_at_sale, quantity
 FROM my_shop.invoice_items;
 
-SELECT id, sku_code, sku_name, sku_preferences, sku_active, price
+SELECT id, sku_code, sku_name, sku_preferences, sku_active, sku_price
 FROM my_shop.products 
 WHERE sku_code = 'sku-001';
 
@@ -119,6 +122,10 @@ SELECT
 FROM my_shop.invoice_items
 WHERE product_id = 1
 GROUP BY product_name_at_sale;
+
+SELECT username, password, role
+FROM my_shop.users
+WHERE username = 'admin' AND password = SHA2('admin_password', 256);
 
 -- ТРАНЗАКЦИИ
 -- 1. Создание накладной (invoices)
