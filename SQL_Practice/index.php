@@ -6,7 +6,9 @@
 	<title>Proba</title>
 </head>
 
-
+<h1>Привет!</h1>
+<?php echo "Это кусок PHP"; ?>
+<p>Дальше опять HTML</p>
 
 <body>
 

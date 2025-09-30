@@ -75,8 +75,6 @@ VALUES
 ('sku-003', 'Линейка', NULL, 1);
 
 
-
-
 -- изменение базы данных 
 
 UPDATE my_shop.products
@@ -94,6 +92,19 @@ WHERE id = 1;
 UPDATE my_shop.users
 SET role = 'user'
 WHERE id IN (2, 3);
+
+-- ТРАНЗАКЦИИ
+-- 1. Создание накладной (invoices)
+INSERT INTO my_shop.invoices (user_id, client_id, total_amount)
+VALUES
+(2, 2, 14.50); -- Используем точку для десятичного разделителя
+
+-- 2. Создание позиций накладной (invoice_items)
+INSERT INTO my_shop.invoice_items (invoice_id, product_id, product_name_at_sale, price_at_sale, quantity)
+VALUES
+(LAST_INSERT_ID(), 1, 'Карандаш HB', 0.50, 5),
+(LAST_INSERT_ID(), 2, 'Ластик', 1.20, 10);
+
 
 -- запрос в базу данных
 
@@ -127,16 +138,6 @@ SELECT username, password, role
 FROM my_shop.users
 WHERE username = 'admin' AND password = SHA2('admin_password', 256);
 
--- ТРАНЗАКЦИИ
--- 1. Создание накладной (invoices)
-INSERT INTO my_shop.invoices (user_id, client_id, total_amount)
-VALUES
-(2, 2, 14.50); -- Используем точку для десятичного разделителя
 
--- 2. Создание позиций накладной (invoice_items)
-INSERT INTO my_shop.invoice_items (invoice_id, product_id, product_name_at_sale, price_at_sale, quantity)
-VALUES
-(LAST_INSERT_ID(), 1, 'Карандаш HB', 0.50, 5),
-(LAST_INSERT_ID(), 2, 'Ластик', 1.20, 10);
 
 
