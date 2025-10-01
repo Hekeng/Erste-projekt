@@ -67,7 +67,6 @@ int main() {
 		// printf ("Plaz # %d ist %d \n", i+1, belegt_verfügbar);
 		// Sleep(10);
 	}
-
 	////////////////// Zählen die Platzen ////////////////
 
 	int besetzt_plaz_kinosal = 0;
@@ -109,6 +108,8 @@ int main() {
 		}
 	}
 	
+	////////// OUTPUT ! ///////////
+
 	printf("Im Kino sind %d Plätze reserviert \n", besetzt_plaz_kinosal);
 	printf("Es gibt %d freie Plätze im Kino \n", frei_plaz_kinosal);
 	printf("Reihe numer %d enthält die meisten leeren platzen \n", numer_lear_reine);
