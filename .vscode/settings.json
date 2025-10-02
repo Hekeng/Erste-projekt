@@ -4,7 +4,8 @@
 		"stdio.h": "c",
 		"windows.h": "c",
 		"time.h": "c",
-		"02_05_07_bibliothek_a3": "c"
+		"02_05_07_bibliothek_a3": "c",
+		"limits": "c"
 	},
 	"sqltools.connections": [
 		{
