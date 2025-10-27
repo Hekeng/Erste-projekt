@@ -39,6 +39,15 @@ if ($experience < 1) {
 	echo " $firstName $lastName Сеньор";
 }
 
+echo "<br>";
+
+$a = 10;
+$b = "10";
+
+var_dump($a);
+echo "<br>";
+var_dump($b);
+
 ?>
 
 <?php ?>
