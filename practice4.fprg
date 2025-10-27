@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="01_05_01"/>
+        <attribute name="authors" value="Admin"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-09-19 01:59:47 "/>
+        <attribute name="created" value="QWRtaW47REVTS1RPUC1CRjNSN1VKOzIwMjUtMDktMTc7IjA0OjEzOjUzICI7Mjc1Mg=="/>
+        <attribute name="edited" value="QWRtaW47REVTS1RPUC1CRjNSN1VKOzIwMjUtMDktMTc7IjA0OjUwOjI2ICI7MjsyODYy"/>
+        <attribute name="edited" value="b2tvaWRhbjtFNEI5N0FGNEM5OEMtMjsyMDI1LTA5LTE5OyIwMTo1OTo0NyAiOzY7Mjg5MQ=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="wahl" type="Integer" array="False" size=""/>
+            <assign variable="wahl" expression="-1"/>
+            <declare name="gesamtsumme" type="Real" array="False" size=""/>
+            <assign variable="gesamtsumme" expression="0"/>
+            <while expression="(wahl != 0)">
+                <output expression="&quot;--- Men&#252; ---&quot;" newline="True"/>
+                <output expression="&quot;1 - Cheeseburger (3.50 &#8364;)&quot;" newline="True"/>
+                <output expression="&quot;2 - Big Mac (5.00 &#8364;)&quot;" newline="True"/>
+                <output expression="&quot;3 - Veggie Burger (4.00 &#8364;)&quot;" newline="True"/>
+                <output expression="&quot;4 - Cola (1.00 &#8364;)&quot;" newline="True"/>
+                <output expression="&quot;5 - Shake (2.00 &#8364;)&quot;" newline="True"/>
+                <output expression="&quot;0 - Bestellung beenden&quot;" newline="True"/>
+                <input variable="wahl"/>
+                <while expression="(!(wahl == 0 || wahl == 1 || wahl == 2 || wahl == 3 || wahl == 4 || wahl == 5))">
+                    <output expression="&quot;Ungultige Eingabe! Nur Zahlen (0, 1, 2, 3, 4, 5) erlaubt.&quot;" newline="True"/>
+                    <assign variable="wahl" expression="-1"/>
+                    <input variable="wahl"/>
+                </while>
+                <if expression="(wahl == 1)">
+                    <then>
+                        <assign variable="gesamtsumme" expression="gesamtsumme + 3.50"/>
+                    </then>
+                    <else>
+                        <if expression="wahl == 2">
+                            <then>
+                                <assign variable="gesamtsumme" expression="gesamtsumme + 5.00"/>
+                            </then>
+                            <else>
+                                <if expression="wahl == 3">
+                                    <then>
+                                        <assign variable="gesamtsumme" expression="gesamtsumme + 4.00"/>
+                                    </then>
+                                    <else>
+                                        <if expression="wahl == 4">
+                                            <then>
+                                                <assign variable="gesamtsumme" expression="gesamtsumme + 1.00"/>
+                                            </then>
+                                            <else>
+                                                <if expression="wahl == 5">
+                                                    <then>
+                                                        <assign variable="gesamtsumme" expression="gesamtsumme + 2.00"/>
+                                                    </then>
+                                                    <else>
+                                                        <output expression="&quot;Bestellung beenden&quot;" newline="True"/>
+                                                    </else>
+                                                </if>
+                                            </else>
+                                        </if>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </while>
+            <output expression="&quot;Gesamtsumme: &quot; &amp; gesamtsumme &amp; &quot; &#8364;&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

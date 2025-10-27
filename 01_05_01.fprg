@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="01_05_01"/>
+        <attribute name="authors" value="Admin"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-09-18 08:51:13 "/>
+        <attribute name="created" value="QWRtaW47REVTS1RPUC1CRjNSN1VKOzIwMjUtMDktMTc7IjA0OjEzOjUzICI7Mjc1Mg=="/>
+        <attribute name="edited" value="QWRtaW47REVTS1RPUC1CRjNSN1VKOzIwMjUtMDktMTc7IjA0OjUwOjI2ICI7MjsyODYy"/>
+        <attribute name="edited" value="b2tvaWRhbjtFNEI5N0FGNEM5OEMtMjsyMDI1LTA5LTE4OyIwODo1MToxMyAiOzE7Mjg3Nw=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="startKapital" type="Real" array="False" size=""/>
+            <output expression="&quot;Input your startcapital&quot;" newline="True"/>
+            <input variable="startKapital"/>
+            <declare name="zielkapital" type="Real" array="False" size=""/>
+            <output expression="&quot;Input your cielcapital&quot;" newline="True"/>
+            <input variable="zielkapital"/>
+            <declare name="prozentsatz" type="Real" array="False" size=""/>
+            <output expression="&quot;Input prozentsatz in ihres bank&quot;" newline="True"/>
+            <input variable="prozentsatz"/>
+            <declare name="aktuelleskapital" type="Real" array="False" size=""/>
+            <assign variable="aktuelleskapital" expression="startKapital"/>
+            <declare name="jahr" type="Real" array="False" size=""/>
+            <assign variable="jahr" expression="0"/>
+            <while expression="aktuelleskapital &lt; zielkapital">
+                <assign variable="aktuelleskapital" expression="aktuelleskapital * (prozentsatz+100)/100"/>
+                <assign variable="jahr" expression="jahr + 1"/>
+            </while>
+            <output expression="&quot;Nach &quot; &amp; jahr &amp; &quot; Jahren betr&#228;gt Ihr Kapital &quot; &amp; aktuelleskapital &amp; &quot; Euro&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

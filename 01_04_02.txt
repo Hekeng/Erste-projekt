@@ -1,0 +1,13 @@
+Programmstart
+
+Frage den Benutzer nach dem Preis eines Tickets und speichere ihn in cost
+Frage den Benutzer nach der Anzahl der Tickets und speichere sie in ticket
+
+Berechne result = cost * ticket
+
+Wenn ticket > 5 dann
+    result = result * 0.9
+
+Gib result mit zwei Nachkommastellen aus
+
+Programmende
