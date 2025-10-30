@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+#include <stdlib.h> //ВАЖНО!!!!
+#include <time.h>//ВАЖНО!!!!
 
 int schreibeZufallszahl(int min, int max); //prototipe
 
@@ -13,7 +13,7 @@ int main() {
     int maxEingabe = 0;
     int zufallsErgebnis =0; 
 
-    srand(time(NULL)); 
+    srand(time(NULL)); //ВАЖНО!!!!
 
     // Eingabe: min
     printf("Bitte geben Sie den minimalen Wert (min) ein: \n");
