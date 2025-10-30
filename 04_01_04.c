@@ -1,3 +1,23 @@
+//Aufgabe_04_01_04
+
+
+//Das Programm fragt zunächst eine ganze Zahl x ab. 
+//Falls ein Wert zwischen 1 und 12 eingegeben wurde, so soll der 
+//entsprechende Monatsname ausgegeben werden und das Programm endet. 
+
+// Nur falls kein Wert zwischen 1 und 12 eingegeben wurde, 
+// kommt es zu einer neuen Abfrage, ob der User ein „Modulo-Fan“ sei. 
+// •	Falls der User mit ‘j‘ antwortet, so wird seine Eingabe von x Modulo 12 
+// interpretiert und die entsprechende Monatsbezeichnung ausgegeben. Dann endet das Programm.
+// •	Falls der User mit ‘n‘ antwortet, so wird „Dann eben nicht“ 
+// ausgegeben und das Programm endet.
+
+// Hinweis:
+// Achten Sie bitte darauf, dass negative Zahlen auch negative
+// Modulo-Werte ergeben (oder den Wert 0 annehmen). 
+// In beide Fällen müsste der berechnete Wert entsprechend korrigiert werden.
+
+
 #include <stdio.h>
 #include <stdlib.h> 
 #include <ctype.h>   // Для isalpha()
@@ -13,6 +33,7 @@ void verarbeite_aussnahme(int x);
 
 
 int main() {
+
     system("chcp 65001"); 
     system("cls"); 
 
@@ -31,18 +52,6 @@ int main() {
     return 0;
 }
 
-
-int korrigiere_modulo(int x) {
-    int resultat = x % 12;
-
-    if (resultat < 0) {
-        resultat += 12;
-    }
-    if (resultat == 0) {
-        return 12;
-    }
-    return resultat;
-}
 
 void monatsname(int monat) {
     switch (monat) {
@@ -91,6 +100,18 @@ char lese_buchstabe(void) {
     return zeichen;
 }
 
+int korrigiere_modulo(int x) {
+    int resultat = x % 12;
+
+    if (resultat < 0) {
+        resultat += 12;
+    }
+    if (resultat == 0) {
+        return 12;
+    }
+    return resultat;
+}
+
 void verarbeite_aussnahme(int x) {
     printf("\nDer Wert %d liegt außerhalb des Bereichs [1, 12].\n", x);
     printf("Möchten Sie den Wert Modulo 12 interpretieren? (j/n): ");
@@ -110,3 +131,4 @@ void verarbeite_aussnahme(int x) {
         printf("\nUngültige Antwort. Programmende.\n");
     }
 }
+
