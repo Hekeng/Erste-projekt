@@ -6,6 +6,7 @@
 #pragma execution_character_set("utf-8")// Für system("chcp 1252") und system("cls") помогает отображать корректно символы в терминале VsCode.
 
 void codiere (char *str, char* arr1, char* arr2);
+void decodiere (char *arr1, char *arr2);
 
 int main() {
 	system("chcp 65001"); // Setzt die Codepage auf 65001 (UTF-8) für die korrekte Anzeige von Umlauten // Für system("chcp 1252") und system("cls") помогает отображать корректно символы в терминале VsCode.
@@ -13,16 +14,14 @@ int main() {
 
 	char original_text[] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.";
 
-	printf("Ihren str ist: %s\n", original_text);
+	printf("Ihren str ist:\n%s\n", original_text);
 
 	char gerade[50];
 	char ungerade[50];
 
 	codiere (original_text, gerade, ungerade);
 
-
-	printf("Ihren gerade arr ist: %s \n", gerade);
-	printf("Ihren gerade arr ist: %s \n", ungerade);
+	decodiere (gerade, ungerade);
 
 
 	return 0;
@@ -50,10 +49,19 @@ void codiere (char *str, char* arr1, char* arr2){
 
 }
 
-void decodiere (char arr1, char arr2){
+void decodiere (char *arr1, char *arr2){
 
-	int flag_gerade_zuruck = 0;
+	printf("Ihren uncoded str ist:\n");
 
-	printf("Ihren gerade arr ist: %s", arr1);
+	for (int i = 0; arr1[i] != '\0' || arr2[i] != '\0'; i++) {
 
+        if (arr1[i] != '\0') {
+            printf("%c", arr1[i]); 
+        }
+
+        if (arr2[i] != '\0') {
+            printf("%c", arr2[i]);
+        }
+	}
+	
 }
