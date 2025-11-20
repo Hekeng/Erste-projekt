@@ -1,0 +1,37 @@
+@startuml Zustandsdiagramm_Kino
+
+' 1. Anfangszustand
+[*] --> Geschlossen
+
+' 2. Offnung des Kinos und Ticketverkaufs
+Geschlossen --> Ticketverkauf : 19:00 Uhr (Kino offnet)
+
+' 3. Ende des Ticketverkaufs (Parallele Bedingungen)
+Ticketverkauf --> Warten_auf_Kinosaal : Alle Tickets verkauft
+Ticketverkauf --> Warten_auf_Kinosaal : 20:00 Uhr (spatestens)
+
+' 4. Offnung des Kinosaals
+Warten_auf_Kinosaal --> Vorfuhrung_startbereit : 20:00 Uhr (Kinosaal offnet)
+
+' 5. Der Block Vorfuhrung (zeigt interne Aktionen)
+state Vorfuhrung {
+    
+    [*] --> Licht_loschen : 20:10 Uhr (Beginn der Vorfuhrung)
+    
+    Licht_loschen --> Film_wird_gezeigt : Licht geloscht
+    
+    Film_wird_gezeigt --> Licht_anschalten : Film Ende
+    
+    Licht_anschalten --> Vorfuhrung_beendet : Licht angeschaltet
+}
+
+' 6. Eintritt in den Vorfuhrung-Block
+Vorfuhrung_startbereit --> Vorfuhrung
+
+' 7. SchlieSen des Kinosaals
+Vorfuhrung_beendet --> Warten_auf_Kinoende : 10 Minuten nach Vorfuhrung
+
+' 8. Endgultige SchlieSung des Kinos
+Warten_auf_Kinoende --> [*] : 22:00 Uhr (Kino schließt komplett)
+
+@enduml

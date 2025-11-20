@@ -1,0 +1,24 @@
+@startuml Zustandsdiagramm_Stringspeicherung
+
+' 1. Anfangszustand: Array ist leer, i=0
+[*] --> Nicht_initialisiert
+
+' 2. Eingabestart
+Nicht_initialisiert --> Eingabe_Puffer : User startet Eingabe
+
+' 3. Schleife: Zeichen in Tastaturpuffer ablegen
+Eingabe_Puffer --> Eingabe_Puffer : Zeichen != \n
+
+' 4. Ende der Eingabe
+Eingabe_Puffer --> Verschieben_in_Array : Zeichen = \n
+
+' 5. Schleife: Speichern in arr[i]
+Verschieben_in_Array --> Verschieben_in_Array : arr[i] != \n (i wird erhoeht)
+
+' 6. Ende der Speicherung (Umbruchzeichen erreicht)
+Verschieben_in_Array --> String_Abschluss : arr[i] = \n
+
+' 7. Ueberschreiben mit Terminator
+String_Abschluss --> [*] : arr[i] = \0 (Diagrammende)
+
+@enduml

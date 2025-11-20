@@ -1,0 +1,38 @@
+@startuml Zustandsdiagramm_Produktentwicklung
+
+' 1. Начало: Сразу переходим к состоянию "Ideenfindung"
+[*] --> Ideenfindung
+
+' 2. Цикл Генерации и Анализа Идей
+Ideenfindung --> Ideenfindung : Idee nicht machbar ODER nicht wirtschaftlich
+Ideenfindung --> Projektplan_erstellen : Idee machbar UND wirtschaftlich
+
+' 3. Планирование
+Projektplan_erstellen --> Projektmanager_suchen : Neue Produktidee liegt vor
+Projektmanager_suchen --> Plan_vorgelegt : Projektmanager gefunden (Plan erstellt)
+
+' 4. Решение и Ветвление
+Plan_vorgelegt --> [*] : Projektplan wird NICHT bewilligt (Abbruch)
+Plan_vorgelegt --> Fork_Start : Projektplan wird bewilligt
+
+' 5. Параллельные Процессы (Fork/Join)
+Fork_Start -down-> fork
+    
+fork -down-> Rekrutierung : Mitarbeiter werden rekrutiert
+Rekrutierung --> Einarbeitung : Mitarbeiter werden eingearbeitet
+Einarbeitung --> Join_Ende
+
+fork -down-> Beschaffung : Material wird beschafft
+Beschaffung --> Einlagerung : Material eingelagert
+Einlagerung --> Join_Ende
+
+Join_Ende -up-> join
+
+' 6. Переход к выполнению проекта
+join --> Projektdurchfuehrung : Mitarbeiter eingearbeitet UND Material eingelagert
+
+' 7. Внешние Конечные Состояния
+Projektdurchfuehrung --> Projektabschluss : Meilenstein erreicht
+Projektabschluss --> [*] : Projektabschluss beendet
+
+@enduml
