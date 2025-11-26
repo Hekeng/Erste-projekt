@@ -23,5 +23,6 @@
 			"name": "XAMPP",
 			"password": ""
 		}
-	]
+	],
+	"C_Cpp.errorSquiggles": "disabled"
 }
